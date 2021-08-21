@@ -3,18 +3,18 @@ package com.example.library.service.impl;
 import com.example.library.constant.AccountStatus;
 import com.example.library.service.MemberService;
 
-import com.example.library.domain.Member;
+import com.example.library.model.user.MemberAccount;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-    List<Member> members = new ArrayList<>();
-    Map<Integer, Member> memberMap = new HashMap<>();
+    List<MemberAccount> members = new ArrayList<>();
+    Map<Integer, MemberAccount> memberMap = new HashMap<>();
 
     @Override
-    public void createMembership(Member member) {
+    public void createMembership(MemberAccount member) {
         if (memberMap.get(member.getId()) == null) {
             memberMap.put(member.getId(), member);
             member.setCreatedOn(new Date());
@@ -25,19 +25,19 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member deactivateMember(Integer memberId) {
-        Member member1 = memberMap.get(memberId);
+    public MemberAccount deactivateMember(Integer memberId) {
+        MemberAccount member1 = memberMap.get(memberId);
         member1.setAccountStatus(AccountStatus.BLOCKED);
         return member1;
     }
 
     @Override
-    public List<Member> getAllMembers() {
+    public List<MemberAccount> getAllMembers() {
         return members;
     }
 
     @Override
-    public Member getMember(Integer membershipId) {
+    public MemberAccount getMember(Integer membershipId) {
         return memberMap.get(membershipId);
     }
 }

@@ -4,5 +4,6 @@ Model Objects
 
 API First
     [] APIs to serve the use case
-    [] Validation
+
+Services
 

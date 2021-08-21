@@ -1,8 +1,10 @@
-package com.example.library.domain;
+package com.example.library.model.user;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import javax.validation.constraints.NotNull;
 
 @ToString
 @Getter
@@ -13,4 +15,7 @@ public class Address {
     private String city;
     private String street;
     private String door;
+
+    @NotNull
+    private String zipCode;
 }

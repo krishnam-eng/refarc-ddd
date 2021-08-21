@@ -1,6 +1,6 @@
 package com.example.library;
 
-import com.example.library.domain.Book;
+import com.example.library.model.domain.Book;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +15,6 @@ public class LibraryApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Book book = new Book();
-
 
     }
 }

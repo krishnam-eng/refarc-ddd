@@ -1,17 +1,19 @@
-package com.example.library.domain;
+package com.example.library.model.user;
 
-import com.example.library.constant.AccountStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.validation.constraints.Max;
 import java.util.Date;
 
 @ToString(callSuper = true)
 @Getter
 @Setter
-public class Member extends Account {
+public class MemberAccount extends Account {
     private Date createdOn;
+
+    @Max(5)
     private Short holdingBooksCount;
 
 }

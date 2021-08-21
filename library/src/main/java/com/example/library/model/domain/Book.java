@@ -1,38 +1,46 @@
-package com.example.library.domain;
+package com.example.library.model.domain;
 
 import com.example.library.constant.BookType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @ToString
 @Getter
 @Setter
 public class Book {
+    @NotNull
     private Integer id;
+
+    @NotNull
     private String title;
+
+    @NotNull
     private String isbnCode;
+
+    @NotNull
+    @Max(10_000)
     private Short numberOfPages;
 
+    @Null
     private BookType bookType;
 
+    @Null
     private String author;
 
-    private Boolean isAvailable;
+    private boolean isAvailable;
 
-    @Min(0)
-    @Max(3000)
     private Short publishedYear;
 
     private String subject;
 
+    @Size(max = 5)
     private List<String> tags;
 
-    public Boolean isAvailable() {
+    public boolean isAvailable() {
         return isAvailable;
     }
 

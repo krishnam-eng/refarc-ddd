@@ -1,4 +1,4 @@
-package com.example.library.domain;
+package com.example.library.model.user;
 
 import com.example.library.constant.AccountStatus;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class Account {
+public abstract class Account {
     private Integer id;
     private String password;
     private AccountStatus accountStatus;
