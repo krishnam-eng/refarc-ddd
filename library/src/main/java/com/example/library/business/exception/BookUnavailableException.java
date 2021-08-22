@@ -1,4 +1,4 @@
-package com.example.library.service.exception;
+package com.example.library.business.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

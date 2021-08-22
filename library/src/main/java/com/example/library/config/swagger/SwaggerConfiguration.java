@@ -1,4 +1,4 @@
-package com.example.library.framework.swagger;
+package com.example.library.config.swagger;
 
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.oas.annotations.EnableOpenApi;

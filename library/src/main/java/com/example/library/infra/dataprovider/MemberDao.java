@@ -1,7 +1,7 @@
-package com.example.library.service;
+package com.example.library.infra.dataprovider;
 
 import com.example.library.domain.constant.AccountStatus;
-import com.example.library.domain.repository.MemberService;
+import com.example.library.business.repository.MemberRepo;
 
 import com.example.library.domain.model.account.MemberAccount;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class MemberServiceImpl implements MemberService {
+public class MemberDao implements MemberRepo {
     List<MemberAccount> members = new ArrayList<>();
     Map<Integer, MemberAccount> memberMap = new HashMap<>();
 

@@ -1,10 +1,10 @@
-package com.example.library.infra.controller;
+package com.example.library.infra.entrypoint;
 
 import com.example.library.domain.model.Book;
 import com.example.library.domain.model.account.MemberAccount;
-import com.example.library.domain.repository.BookLendingService;
-import com.example.library.domain.repository.BookSearchService;
-import com.example.library.domain.repository.MemberService;
+import com.example.library.business.repository.BookQuery;
+import com.example.library.business.repository.MemberRepo;
+import com.example.library.business.service.IBookCatalogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -17,14 +17,14 @@ import java.util.List;
 public class LibrarianRestController {
 
     public static final String FUNCTIONALITY_IS_NOT_IMPLEMENTED = "Functionality is not implemented";
-    BookLendingService bookLendingService;
-    BookSearchService bookReaderService;
-    MemberService memberService;
+    IBookCatalogService bookCatalogService;
+    BookQuery bookReaderService;
+    MemberRepo memberRepo;
 
-    public LibrarianRestController(BookLendingService bookLendingService, BookSearchService bookReaderService, MemberService memberService) {
-        this.bookLendingService = bookLendingService;
+    public LibrarianRestController(IBookCatalogService bookCatalogService, BookQuery bookReaderService, MemberRepo memberRepo) {
+        this.bookCatalogService = bookCatalogService;
         this.bookReaderService = bookReaderService;
-        this.memberService = memberService;
+        this.memberRepo = memberRepo;
     }
 
     @GetMapping("/getAllBooks")
@@ -36,7 +36,7 @@ public class LibrarianRestController {
     @PostMapping("/addBook")
     public void addBook(@Validated Book book) {
         log.debug(book.toString());
-        bookLendingService.addBook(book);
+        bookCatalogService.addBook(book);
     }
 
     @PatchMapping(path = "/updateBook")
@@ -54,18 +54,18 @@ public class LibrarianRestController {
     @PostMapping(path = "/createMemberAccount")
     public void createMemberAccount(@Validated MemberAccount memberAccount) {
         log.debug(memberAccount.toString());
-        memberService.createMembership(memberAccount);
+        memberRepo.createMembership(memberAccount);
     }
 
     @GetMapping(path = "/getAllMembers")
     public List<MemberAccount> getAllMembers() {
-        return memberService.getAllMembers();
+        return memberRepo.getAllMembers();
     }
 
     @GetMapping("blockMemberAccount")
     public MemberAccount blockMemberAccount(Integer memberId) {
         log.debug(memberId.toString());
-        return memberService.deactivateMember(memberId);
+        return memberRepo.deactivateMember(memberId);
     }
 
     @DeleteMapping("deleteMemberAccount")

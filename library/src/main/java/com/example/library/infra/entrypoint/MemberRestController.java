@@ -1,8 +1,8 @@
-package com.example.library.infra.controller;
+package com.example.library.infra.entrypoint;
 
-import com.example.library.service.exception.BookUnavailableException;
+import com.example.library.business.exception.BookUnavailableException;
 import com.example.library.domain.model.Book;
-import com.example.library.domain.repository.BookLendingService;
+import com.example.library.business.repository.BookCommand;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/member")
 public class MemberRestController {
 
-    BookLendingService bookService;
+    BookCommand bookService;
 
-    public MemberRestController(BookLendingService bookService) {
+    public MemberRestController(BookCommand bookService) {
         this.bookService = bookService;
     }
 

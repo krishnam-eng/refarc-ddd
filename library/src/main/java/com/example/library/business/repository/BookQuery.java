@@ -1,10 +1,10 @@
-package com.example.library.domain.repository;
+package com.example.library.business.repository;
 
 import com.example.library.domain.model.Book;
 
 import java.util.List;
 
-public interface BookSearchService {
+public interface BookQuery {
     Book getBookById(Integer title);
 
     public List<Book> getAllBooks();
