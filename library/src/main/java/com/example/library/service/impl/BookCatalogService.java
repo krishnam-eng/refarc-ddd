@@ -1,6 +1,6 @@
 package com.example.library.service.impl;
 
-import com.example.library.model.domain.Book;
+import com.example.library.model.entity.Book;
 import com.example.library.exception.BookUnavailableException;
 import com.example.library.service.BookManagementService;
 import com.example.library.service.BookReaderService;

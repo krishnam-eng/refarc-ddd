@@ -1,6 +1,6 @@
 package com.example.library;
 
-import com.example.library.model.domain.Book;
+import com.example.library.model.entity.Book;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

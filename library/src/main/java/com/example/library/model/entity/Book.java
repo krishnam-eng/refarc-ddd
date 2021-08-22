@@ -1,4 +1,4 @@
-package com.example.library.model.domain;
+package com.example.library.model.entity;
 
 import com.example.library.constant.BookType;
 import lombok.Getter;

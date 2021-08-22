@@ -1,6 +1,6 @@
 package com.example.library.service;
 
-import com.example.library.model.user.MemberAccount;
+import com.example.library.model.entity.account.MemberAccount;
 
 import java.util.List;
 

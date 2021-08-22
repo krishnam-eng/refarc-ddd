@@ -1,7 +1,7 @@
 package com.example.library.controller;
 
-import com.example.library.model.domain.Book;
-import com.example.library.model.user.MemberAccount;
+import com.example.library.model.entity.Book;
+import com.example.library.model.entity.account.MemberAccount;
 import com.example.library.service.BookManagementService;
 import com.example.library.service.BookReaderService;
 import com.example.library.service.MemberService;

@@ -1,4 +1,4 @@
-package com.example.library.model.domain;
+package com.example.library.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;

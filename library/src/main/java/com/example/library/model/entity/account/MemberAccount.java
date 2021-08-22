@@ -1,4 +1,4 @@
-package com.example.library.model.user;
+package com.example.library.model.entity.account;
 
 import lombok.Getter;
 import lombok.Setter;

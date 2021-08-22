@@ -1,7 +1,7 @@
 package com.example.library.controller;
 
 import com.example.library.exception.BookUnavailableException;
-import com.example.library.model.domain.Book;
+import com.example.library.model.entity.Book;
 import com.example.library.service.BookManagementService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
