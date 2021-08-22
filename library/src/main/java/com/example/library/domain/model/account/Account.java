@@ -1,7 +1,7 @@
 package com.example.library.domain.model.account;
 
 import com.example.library.domain.constant.AccountStatus;
-import com.example.library.domain.model.data.Person;
+import com.example.library.domain.data.Person;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

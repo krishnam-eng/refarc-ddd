@@ -1,4 +1,4 @@
-package com.example.library.domain.model.data;
+package com.example.library.domain.data;
 
 public class Tag {
     private Integer tagId;

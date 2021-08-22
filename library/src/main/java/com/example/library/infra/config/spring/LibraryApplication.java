@@ -1,4 +1,4 @@
-package com.example.library.config.spring;
+package com.example.library.infra.config.spring;
 
 import com.example.library.domain.model.Book;
 import org.springframework.boot.CommandLineRunner;
