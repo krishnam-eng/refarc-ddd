@@ -5,11 +5,11 @@ import com.clap.lms.domain.entities.Book;
 import java.util.List;
 
 public interface BookCatalogUseCase {
-    void addBook(Book book);
+  void addBook(Book book);
 
-    List<Book> getAllAvailableBooks();
+  List<Book> getAllAvailableBooks();
 
-    Book checkOut(Integer bookId);
+  Book checkOut(Integer bookId);
 
-    void returnBook(Integer bookId);
+  void returnBook(Integer bookId);
 }

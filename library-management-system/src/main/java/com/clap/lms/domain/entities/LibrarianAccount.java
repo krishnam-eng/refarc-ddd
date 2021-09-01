@@ -7,6 +7,4 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @Getter
 @Setter
-public class LibrarianAccount extends Account {
-
-}
+public class LibrarianAccount extends Account {}

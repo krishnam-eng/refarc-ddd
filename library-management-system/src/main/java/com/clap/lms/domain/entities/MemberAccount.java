@@ -11,9 +11,8 @@ import java.util.Date;
 @Getter
 @Setter
 public class MemberAccount extends Account {
-    private Date createdOn;
+  private Date createdOn;
 
-    @Max(5)
-    private Short holdingBooksCount;
-
+  @Max(5)
+  private Short holdingBooksCount;
 }

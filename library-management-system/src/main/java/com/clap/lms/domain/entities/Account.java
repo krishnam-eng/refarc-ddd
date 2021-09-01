@@ -1,7 +1,7 @@
 package com.clap.lms.domain.entities;
 
-import com.clap.lms.domain.valueobjects.Person;
 import com.clap.lms.domain.enumerations.AccountStatus;
+import com.clap.lms.domain.valueobjects.Person;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,8 +10,8 @@ import lombok.ToString;
 @Getter
 @Setter
 public abstract class Account {
-    private Integer id;
-    private String password;
-    private AccountStatus accountStatus;
-    private Person person;
+  private Integer accountId;
+  private String password;
+  private AccountStatus accountStatus;
+  private Person person;
 }

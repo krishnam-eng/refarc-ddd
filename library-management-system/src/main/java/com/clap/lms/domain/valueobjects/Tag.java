@@ -1,7 +1,14 @@
 package com.clap.lms.domain.valueobjects;
 
-public class Tag {
-    private Integer tagId;
+import lombok.Getter;
+import lombok.ToString;
 
-    private String tagName;
+@Getter
+@ToString
+public final class Tag {
+  private final String tagName;
+
+  public Tag(String tagName) {
+    this.tagName = tagName;
+  }
 }

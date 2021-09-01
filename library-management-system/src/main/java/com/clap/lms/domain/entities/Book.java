@@ -5,46 +5,44 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @ToString
 @Getter
 @Setter
 public class Book {
-    @NotNull
-    private Integer id;
+  @NotNull private Integer bookId;
 
-    @NotNull
-    private String title;
+  @NotNull private String title;
 
-    @NotNull
-    private String isbnCode;
+  @NotNull private String isbnCode;
 
-    @NotNull
-    @Max(10_000)
-    private Short numberOfPages;
+  @NotNull
+  @Max(10_000)
+  private Short numberOfPages;
 
-    @Null
-    private BookType bookType;
+  @Null private BookType bookType;
 
-    @Null
-    private String author;
+  @Null private String author;
 
-    private boolean isAvailable;
+  private boolean isAvailable;
 
-    private Short publishedYear;
+  private Short publishedYear;
 
-    private String subject;
+  private String subject;
 
-    @Size(max = 5)
-    private List<String> tags;
+  @Size(max = 5)
+  private List<String> tags;
 
-    public boolean isAvailable() {
-        return isAvailable;
-    }
+  public boolean isAvailable() {
+    return isAvailable;
+  }
 
-    public void lend() {
-        isAvailable = false;
-    }
+  public void lend() {
+    isAvailable = false;
+  }
 }

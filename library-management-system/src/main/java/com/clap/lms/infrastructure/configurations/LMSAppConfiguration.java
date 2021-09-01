@@ -9,12 +9,12 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.clap.lms")
 public class LMSAppConfiguration implements CommandLineRunner {
 
-    public static void main(String[] args) {
-        SpringApplication.run(LMSAppConfiguration.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(LMSAppConfiguration.class, args);
+  }
 
-    @Override
-    public void run(String... args) {
-        // Do nothing now. I will update this with data pre population logic.
-    }
+  @Override
+  public void run(String... args) {
+    // Do nothing now. I will update this with data pre population logic.
+  }
 }
