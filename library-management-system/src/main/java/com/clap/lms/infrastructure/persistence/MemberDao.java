@@ -1,6 +1,6 @@
 package com.clap.lms.infrastructure.persistence;
 
-import com.clap.lms.domain.enumurations.AccountStatus;
+import com.clap.lms.domain.enumerations.AccountStatus;
 import com.clap.lms.application.ports.MemberRepo;
 
 import com.clap.lms.domain.entities.MemberAccount;

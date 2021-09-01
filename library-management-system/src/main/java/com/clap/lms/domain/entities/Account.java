@@ -1,7 +1,7 @@
 package com.clap.lms.domain.entities;
 
 import com.clap.lms.domain.valueobjects.Person;
-import com.clap.lms.domain.enumurations.AccountStatus;
+import com.clap.lms.domain.enumerations.AccountStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

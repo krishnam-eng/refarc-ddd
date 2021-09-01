@@ -1,6 +1,6 @@
 package com.clap.lms.domain.entities;
 
-import com.clap.lms.domain.enumurations.BookType;
+import com.clap.lms.domain.enumerations.BookType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
