@@ -4,7 +4,7 @@ import com.clap.lms.domain.entities.MemberAccount;
 
 import java.util.List;
 
-public interface MemberRepo {
+public interface MemberRepository {
   void createMembership(MemberAccount member);
 
   MemberAccount deactivateMember(Integer memberId);

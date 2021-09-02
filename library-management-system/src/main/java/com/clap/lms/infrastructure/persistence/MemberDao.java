@@ -1,6 +1,6 @@
 package com.clap.lms.infrastructure.persistence;
 
-import com.clap.lms.application.ports.MemberRepo;
+import com.clap.lms.application.ports.MemberRepository;
 import com.clap.lms.domain.entities.MemberAccount;
 import com.clap.lms.domain.enumerations.AccountStatus;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class MemberDao implements MemberRepo {
+public class MemberDao implements MemberRepository {
   List<MemberAccount> members = new ArrayList<>();
   Map<Integer, MemberAccount> memberMap = new HashMap<>();
 

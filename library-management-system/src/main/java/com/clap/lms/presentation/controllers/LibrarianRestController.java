@@ -1,7 +1,7 @@
 package com.clap.lms.presentation.controllers;
 
 import com.clap.lms.application.ports.BookQuery;
-import com.clap.lms.application.ports.MemberRepo;
+import com.clap.lms.application.ports.MemberRepository;
 import com.clap.lms.application.usecases.BookCatalogUseCase;
 import com.clap.lms.domain.entities.Book;
 import com.clap.lms.domain.entities.MemberAccount;
@@ -19,13 +19,13 @@ public class LibrarianRestController {
   public static final String FUNCTIONALITY_IS_NOT_IMPLEMENTED = "Functionality is not implemented";
   BookCatalogUseCase bookCatalogService;
   BookQuery bookReaderService;
-  MemberRepo memberRepo;
+  MemberRepository memberRepository;
 
   public LibrarianRestController(
-      BookCatalogUseCase bookCatalogService, BookQuery bookReaderService, MemberRepo memberRepo) {
+      BookCatalogUseCase bookCatalogService, BookQuery bookReaderService, MemberRepository memberRepository) {
     this.bookCatalogService = bookCatalogService;
     this.bookReaderService = bookReaderService;
-    this.memberRepo = memberRepo;
+    this.memberRepository = memberRepository;
   }
 
   @GetMapping("/getAllBooks")
@@ -55,18 +55,18 @@ public class LibrarianRestController {
   @PostMapping(path = "/createMemberAccount")
   public void createMemberAccount(@Validated MemberAccount memberAccount) {
     log.debug(memberAccount.toString());
-    memberRepo.createMembership(memberAccount);
+    memberRepository.createMembership(memberAccount);
   }
 
   @GetMapping(path = "/getAllMembers")
   public List<MemberAccount> getAllMembers() {
-    return memberRepo.getAllMembers();
+    return memberRepository.getAllMembers();
   }
 
   @GetMapping("blockMemberAccount")
   public MemberAccount blockMemberAccount(Integer memberId) {
     log.debug(memberId.toString());
-    return memberRepo.deactivateMember(memberId);
+    return memberRepository.deactivateMember(memberId);
   }
 
   @DeleteMapping("deleteMemberAccount")

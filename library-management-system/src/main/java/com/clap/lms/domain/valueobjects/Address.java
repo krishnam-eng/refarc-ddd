@@ -1,13 +1,13 @@
 package com.clap.lms.domain.valueobjects;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-// Make the value object immutable
+@EqualsAndHashCode
 public final class Address {
-  // property can't be changed after object creation
   private final String country;
   private final String state;
   private final String city;
