@@ -1,10 +1,9 @@
 package com.clap.lms.domain.entities;
 
-import com.clap.lms.domain.enumerations.BookStatus;
 import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
 
 @ToString
 public class BookLending {
@@ -12,29 +11,17 @@ public class BookLending {
 
   @NotNull private final MemberAccount member;
 
-  @NotNull private final Date creationDate;
+  @NotNull private final LocalDate creationDate;
 
-  @NotNull private final Date dueDate;
+  @NotNull private final LocalDate dueDate;
 
-  private Date returnDate;
+  private LocalDate returnDate;
 
-  public BookLending(BookItem bookItem, MemberAccount member, Date creationDate, Date dueDate) {
+  public BookLending(BookItem bookItem, MemberAccount member, LocalDate creationDate, LocalDate dueDate) {
     this.bookItem = bookItem;
     this.member = member;
     this.creationDate = creationDate;
     this.dueDate = dueDate;
-  }
-
-  boolean lendBook() {
-    if (bookItem.isAvailable()) {
-      bookItem.setBookStatus(BookStatus.LOANED);
-      return true;
-    }
-    return false;
-  }
-
-  void returnBook() {
-    bookItem.setBookStatus(BookStatus.AVAILABLE);
   }
 
   public BookItem getBookItem() {
@@ -45,22 +32,20 @@ public class BookLending {
     return member;
   }
 
-  public Date getCreationDate() {
+  public LocalDate getCreationDate() {
     return creationDate;
   }
 
-  public Date getDueDate() {
+  public LocalDate getDueDate() {
     return dueDate;
   }
 
-  public Date getReturnDate() {
+  public LocalDate getReturnDate() {
     return returnDate;
   }
 
-  public void setReturnDate(Date returnDate) {
+  public void setReturnDate(LocalDate returnDate) {
     this.returnDate = returnDate;
   }
 
-  // Use cases:
-  //  fetch lending details by book barcode
 }

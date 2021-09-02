@@ -1,7 +1,7 @@
 package com.clap.lms.presentation.controllers;
 
-import com.clap.lms.application.usecases.BookCatalogUseCase;
-import com.clap.lms.application.usecases.MembershipUseCase;
+import com.clap.lms.application.usecases.BookCatalogService;
+import com.clap.lms.application.usecases.MembershipService;
 import com.clap.lms.domain.entities.Book;
 import com.clap.lms.domain.entities.BookItem;
 import com.clap.lms.domain.entities.MemberAccount;
@@ -20,11 +20,11 @@ import java.util.List;
 public class LibrarianRestController {
   public static final Logger log = LoggerFactory.getLogger(LibrarianRestController.class);
 
-  MembershipUseCase membershipService;
-  BookCatalogUseCase bookCatalogService;
+  MembershipService membershipService;
+  BookCatalogService bookCatalogService;
 
   public LibrarianRestController(
-      MembershipUseCase membershipService, BookCatalogUseCase bookCatalogService) {
+          MembershipService membershipService, BookCatalogService bookCatalogService) {
     this.membershipService = membershipService;
     this.bookCatalogService = bookCatalogService;
   }
