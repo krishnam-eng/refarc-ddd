@@ -15,22 +15,16 @@ public class BookDao implements BookCommand, BookQuery {
 
   private final List<Book> books = new CopyOnWriteArrayList<>();
 
-  private final Map<Integer, Book> isbnToBookMap = new HashMap<>();
+  private final Map<String, Book> isbnToBookMap = new HashMap<>();
 
   @Override
   public void addBook(Book book) {
-    if (isbnToBookMap.get(book.getBookId()) == null) {
-      isbnToBookMap.put(book.getBookId(), book);
+    if (isbnToBookMap.get(book.getIsbnCode()) == null) {
+      isbnToBookMap.put(book.getIsbnCode(), book);
       books.add(book);
     } else {
       throw new IllegalArgumentException("Book already exist with same ISBN");
     }
-  }
-
-  @Override
-  public void updateBookAvailability(Integer bookId, Boolean isAvailable) {
-    Book book = isbnToBookMap.get(bookId);
-    book.setAvailable(true);
   }
 
   @Override

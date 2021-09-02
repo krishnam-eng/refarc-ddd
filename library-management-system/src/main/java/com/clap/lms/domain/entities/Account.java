@@ -8,9 +8,6 @@ import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
 
-@ToString
-@Getter
-@Setter
 public abstract class Account {
   // this is the username for the account
   private String accountId;
@@ -20,5 +17,37 @@ public abstract class Account {
 
   void resetPassword(String password) {
     this.password = password;
+  }
+
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public AccountStatus getAccountStatus() {
+    return accountStatus;
+  }
+
+  public void setAccountStatus(AccountStatus accountStatus) {
+    this.accountStatus = accountStatus;
+  }
+
+  public Person getPerson() {
+    return person;
+  }
+
+  public void setPerson(Person person) {
+    this.person = person;
   }
 }

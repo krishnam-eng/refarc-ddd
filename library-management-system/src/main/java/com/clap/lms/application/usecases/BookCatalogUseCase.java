@@ -7,9 +7,8 @@ import java.util.List;
 public interface BookCatalogUseCase {
   void addBook(Book book);
 
-  List<Book> getAllAvailableBooks();
+  List<Book> getAllBooks();
 
   Book checkOut(Integer bookId);
 
-  void returnBook(Integer bookId);
 }

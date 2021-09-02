@@ -10,6 +10,12 @@ public class BookReservation {
     private Date reservationDate;
     private BookReservationStatus bookReservationStatus = BookReservationStatus.NONE;
 
+    public BookReservation(BookItem bookItem, MemberAccount member, Date reservationDate) {
+        this.bookItem = bookItem;
+        this.member = member;
+        this.reservationDate = reservationDate;
+    }
+
     BookReservationStatus reserveBook(){
         if (bookItem.isAvailable()){
             bookReservationStatus = BookReservationStatus.RESERVED;
@@ -21,6 +27,22 @@ public class BookReservation {
 
     void cancelReservation(){
         bookReservationStatus = BookReservationStatus.CANCELED;
+    }
+
+    public BookItem getBookItem() {
+        return bookItem;
+    }
+
+    public MemberAccount getMember() {
+        return member;
+    }
+
+    public Date getReservationDate() {
+        return reservationDate;
+    }
+
+    public BookReservationStatus getBookReservationStatus() {
+        return bookReservationStatus;
     }
 
     // Use case:

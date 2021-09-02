@@ -1,4 +1,4 @@
-package com.clap.lms.domain.constants;
+package com.clap.lms.domain.properties;
 
 // This will be moved to External Configuration System
 public final class BusinessProperties {

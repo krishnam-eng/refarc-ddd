@@ -7,7 +7,6 @@ import lombok.ToString;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Getter
 @ToString
 public class BookLending {
   @NotNull private final BookItem bookItem;
@@ -41,6 +40,26 @@ public class BookLending {
 
   void returnBook() {
     bookItem.setBookStatus(BookStatus.AVAILABLE);
+  }
+
+  public BookItem getBookItem() {
+    return bookItem;
+  }
+
+  public MemberAccount getMember() {
+    return member;
+  }
+
+  public Date getCreationDate() {
+    return creationDate;
+  }
+
+  public Date getDueDate() {
+    return dueDate;
+  }
+
+  public Date getReturnDate() {
+    return returnDate;
   }
 
   // Use cases:

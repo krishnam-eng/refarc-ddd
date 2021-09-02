@@ -24,6 +24,6 @@ public class MemberRestController {
 
   @GetMapping("/returnBook")
   public void returnBook(Integer bookId) {
-    bookService.returnBook(bookId);
+    //bookService.returnBook(bookId);
   }
 }
