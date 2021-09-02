@@ -5,46 +5,46 @@ import com.clap.lms.domain.enumerations.BookReservationStatus;
 import java.util.Date;
 
 public class BookReservation {
-    private BookItem bookItem;
-    private MemberAccount member;
-    private Date reservationDate;
-    private BookReservationStatus bookReservationStatus = BookReservationStatus.NONE;
+  private BookItem bookItem;
+  private MemberAccount member;
+  private Date reservationDate;
+  private BookReservationStatus bookReservationStatus = BookReservationStatus.NONE;
 
-    public BookReservation(BookItem bookItem, MemberAccount member, Date reservationDate) {
-        this.bookItem = bookItem;
-        this.member = member;
-        this.reservationDate = reservationDate;
+  public BookReservation(BookItem bookItem, MemberAccount member, Date reservationDate) {
+    this.bookItem = bookItem;
+    this.member = member;
+    this.reservationDate = reservationDate;
+  }
+
+  BookReservationStatus reserveBook() {
+    if (bookItem.isAvailable()) {
+      bookReservationStatus = BookReservationStatus.RESERVED;
+    } else {
+      bookReservationStatus = BookReservationStatus.WAITING;
     }
+    return bookReservationStatus;
+  }
 
-    BookReservationStatus reserveBook(){
-        if (bookItem.isAvailable()){
-            bookReservationStatus = BookReservationStatus.RESERVED;
-        } else {
-            bookReservationStatus = BookReservationStatus.WAITING;
-        }
-        return bookReservationStatus;
-    }
+  void cancelReservation() {
+    bookReservationStatus = BookReservationStatus.CANCELED;
+  }
 
-    void cancelReservation(){
-        bookReservationStatus = BookReservationStatus.CANCELED;
-    }
+  public BookItem getBookItem() {
+    return bookItem;
+  }
 
-    public BookItem getBookItem() {
-        return bookItem;
-    }
+  public MemberAccount getMember() {
+    return member;
+  }
 
-    public MemberAccount getMember() {
-        return member;
-    }
+  public Date getReservationDate() {
+    return reservationDate;
+  }
 
-    public Date getReservationDate() {
-        return reservationDate;
-    }
+  public BookReservationStatus getBookReservationStatus() {
+    return bookReservationStatus;
+  }
 
-    public BookReservationStatus getBookReservationStatus() {
-        return bookReservationStatus;
-    }
-
-    // Use case:
-    //  fetch reservation details by book code
+  // Use case:
+  //  fetch reservation details by book code
 }

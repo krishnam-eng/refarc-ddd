@@ -1,7 +1,6 @@
 package com.clap.lms.domain.entities;
 
 import com.clap.lms.domain.enumerations.BookStatus;
-import lombok.Getter;
 import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
@@ -24,10 +23,6 @@ public class BookLending {
     this.member = member;
     this.creationDate = creationDate;
     this.dueDate = dueDate;
-  }
-
-  public void setReturnDate(Date returnDate) {
-    this.returnDate = returnDate;
   }
 
   boolean lendBook() {
@@ -60,6 +55,10 @@ public class BookLending {
 
   public Date getReturnDate() {
     return returnDate;
+  }
+
+  public void setReturnDate(Date returnDate) {
+    this.returnDate = returnDate;
   }
 
   // Use cases:

@@ -25,7 +25,7 @@ public class MemberAccount extends Account {
   public void setTotalBooksCheckedOut(Short totalBooksCheckedOut) {
     this.totalBooksCheckedOut = totalBooksCheckedOut;
   }
-// member usecases:
+  // member usecases:
   //  reserve book item
   //  checkout book item
   //  return book item

@@ -1,9 +1,5 @@
 package com.clap.lms.domain.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
-
 public final class Fine {
   private BookItem bookItem;
   private MemberAccount member;

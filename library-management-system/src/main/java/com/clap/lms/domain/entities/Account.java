@@ -2,11 +2,6 @@ package com.clap.lms.domain.entities;
 
 import com.clap.lms.domain.enumerations.AccountStatus;
 import com.clap.lms.domain.valueobjects.Person;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-import javax.validation.constraints.NotNull;
 
 public abstract class Account {
   // this is the username for the account

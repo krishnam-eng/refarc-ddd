@@ -2,8 +2,6 @@ package com.clap.lms.domain.entities;
 
 import com.clap.lms.domain.enumerations.BookStatus;
 import com.clap.lms.domain.enumerations.BookType;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @ToString
@@ -18,11 +16,11 @@ public class BookItem {
 
   private BookStatus bookStatus;
 
-  void reserveBook(){
+  void reserveBook() {
     bookStatus = BookStatus.RESERVED;
   }
 
-  void markLost(){
+  void markLost() {
     bookStatus = BookStatus.LOST;
   }
 
