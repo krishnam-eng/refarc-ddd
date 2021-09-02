@@ -1,18 +1,15 @@
 package com.clap.lms.domain.entities;
 
 import com.clap.lms.domain.enumerations.BookStatus;
-import com.clap.lms.domain.enumerations.BookType;
 import lombok.ToString;
 
 @ToString
 public class BookItem {
-  private Book book;
-
-  private BookType bookType;
-
-  private Integer bookItemId;
-
   private String barCode;
+
+  private String bookIsbnCode;
+
+  private boolean referenceOnly;
 
   private BookStatus bookStatus;
 
@@ -24,32 +21,24 @@ public class BookItem {
     bookStatus = BookStatus.LOST;
   }
 
-  boolean isAvailable() {
+  public boolean isAvailable() {
     return this.getBookStatus().equals(BookStatus.AVAILABLE);
   }
 
-  public Book getBook() {
-    return book;
+  public void setBookIsbnCode(String bookIsbnCode) {
+    this.bookIsbnCode = bookIsbnCode;
   }
 
-  public void setBook(Book book) {
-    this.book = book;
+  public String getBookIsbnCode() {
+    return bookIsbnCode;
   }
 
-  public BookType getBookType() {
-    return bookType;
+  public boolean isReferenceOnly() {
+    return referenceOnly;
   }
 
-  public void setBookType(BookType bookType) {
-    this.bookType = bookType;
-  }
-
-  public Integer getBookItemId() {
-    return bookItemId;
-  }
-
-  public void setBookItemId(Integer bookItemId) {
-    this.bookItemId = bookItemId;
+  public void setReferenceOnly(boolean referenceOnly) {
+    this.referenceOnly = referenceOnly;
   }
 
   public String getBarCode() {
