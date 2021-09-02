@@ -7,10 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("com.clap.lms")
-public class LMSAppConfiguration implements CommandLineRunner {
+public class LMSApplication implements CommandLineRunner {
 
   public static void main(String[] args) {
-    SpringApplication.run(LMSAppConfiguration.class, args);
+    SpringApplication.run(LMSApplication.class, args);
   }
 
   @Override
