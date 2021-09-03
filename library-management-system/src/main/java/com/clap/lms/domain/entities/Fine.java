@@ -8,6 +8,7 @@ public final class Fine {
   public Fine(BookItem bookItem, MemberAccount member, Integer amount) {
     this.bookItem = bookItem;
     this.member = member;
+    this.amount = amount;
   }
 
   public BookItem getBookItem() {

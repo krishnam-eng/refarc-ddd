@@ -1,6 +1,6 @@
 package com.clap.lms.application.usecases.impl;
 
-import com.clap.lms.application.exceptions.BookCheckoutException;
+import com.clap.lms.application.exceptions.LMSException;
 import com.clap.lms.application.usecases.BookCatalogService;
 import com.clap.lms.application.usecases.BookLendingService;
 import com.clap.lms.application.usecases.MemberService;
@@ -13,6 +13,7 @@ import com.clap.lms.domain.properties.BusinessProperties;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -21,38 +22,48 @@ public class MemberServiceImpl implements MemberService {
   private BookCatalogService bookCatalogService;
   private BookLendingService bookLendingService;
 
-  public MemberServiceImpl(MembershipService membershipService, BookCatalogService bookCatalogService, BookLendingService bookLendingService) {
+  public MemberServiceImpl(
+      MembershipService membershipService,
+      BookCatalogService bookCatalogService,
+      BookLendingService bookLendingService) {
     this.membershipService = membershipService;
     this.bookCatalogService = bookCatalogService;
     this.bookLendingService = bookLendingService;
   }
 
+  /*
+  Logic Flow:
+    validation
+    negative path
+    happy path
+   */
+
   @Override
   public BookLending checkOut(String memberId, String bookItemBarCode)
-      throws BookCheckoutException {
+      throws LMSException {
 
     MemberAccount memberAccount = membershipService.getMemberDetail(memberId);
 
-    if (memberAccount == null){
-      throw BookCheckoutException.invalidMemberId();
+    if (memberAccount == null) {
+      throw LMSException.invalidMemberId();
     }
 
     if (memberAccount.getTotalBooksCheckedOut() >= BusinessProperties.MAX_BOOKS_ALLOWED) {
-      throw BookCheckoutException.couldNotIssueMoreThanAllowedBooks();
+      throw LMSException.couldNotIssueMoreThanAllowedBooks();
     }
 
     BookItem bookItem = bookCatalogService.getBookItemByBarCode(bookItemBarCode);
 
-    if (bookItem == null){
-      throw BookCheckoutException.invalidBookId();
+    if (bookItem == null) {
+      throw LMSException.invalidBookId();
     }
 
     if (bookItem.isReferenceOnly()) {
-      throw BookCheckoutException.couldNotIssueReferenceBook();
+      throw LMSException.couldNotIssueReferenceBook();
     }
 
     if (!bookItem.isAvailable()) {
-      throw BookCheckoutException.couldNotIssueRequestedBook();
+      throw LMSException.couldNotIssueRequestedBook();
     }
 
     LocalDate creationDate = LocalDate.now();
@@ -67,7 +78,36 @@ public class MemberServiceImpl implements MemberService {
   }
 
   @Override
-  public void returnBook(String memberId, String bookItemBarCode) {}
+  public BookLending returnBook(String memberId, String bookItemBarCode) throws LMSException {
+
+    MemberAccount memberAccount = membershipService.getMemberDetail(memberId);
+    if (memberAccount == null) {
+      throw LMSException.invalidMemberId();
+    }
+
+    BookItem bookItem = bookCatalogService.getBookItemByBarCode(bookItemBarCode);
+    if (bookItem == null) {
+      throw LMSException.invalidBookId();
+    }
+
+    BookLending bookLending = bookLendingService.fetchBookLeadingRecord(bookItem.getBarCode());
+    if (bookLending == null) {
+      throw LMSException.withMessage("Invalid record of book lending");
+    }
+
+    LocalDate returnDate = LocalDate.now();
+    bookLending.setReturnDate(returnDate);
+    if(returnDate.isAfter(bookLending.getDueDate())){
+      Period period = returnDate.until(bookLending.getDueDate());
+      Long fine = period.getDays() * 10L;
+      memberAccount.addFineAmount(fine);
+    }
+
+    bookItem.setBookStatus(BookStatus.AVAILABLE);
+    memberAccount.setTotalBooksCheckedOut((short)(memberAccount.getTotalBooksCheckedOut()-1));
+
+    return bookLending;
+  }
 
   @Override
   public BookLending renewBook(String memberId, String bookItemBarCode) {

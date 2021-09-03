@@ -10,6 +10,16 @@ public class MemberAccount extends Account {
 
   private Short totalBooksCheckedOut;
 
+  private Long fineAmount = 0L;
+
+  public Long getFineAmount() {
+    return fineAmount;
+  }
+
+  public void addFineAmount(Long fineAmount) {
+    this.fineAmount += fineAmount;
+  }
+
   public Date getDateOfMembership() {
     return dateOfMembership;
   }
@@ -25,12 +35,4 @@ public class MemberAccount extends Account {
   public void setTotalBooksCheckedOut(Short totalBooksCheckedOut) {
     this.totalBooksCheckedOut = totalBooksCheckedOut;
   }
-  // member usecases:
-  //  reserve book item
-  //  checkout book item
-  //  return book item
-  //  renew book item
-  //  check Fine
-  //  settle Fine
-
 }
