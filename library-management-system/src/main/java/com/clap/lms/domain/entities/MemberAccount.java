@@ -1,5 +1,6 @@
 package com.clap.lms.domain.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 import java.util.Date;
@@ -35,4 +36,5 @@ public class MemberAccount extends Account {
   public void setTotalBooksCheckedOut(Short totalBooksCheckedOut) {
     this.totalBooksCheckedOut = totalBooksCheckedOut;
   }
+
 }

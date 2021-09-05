@@ -2,6 +2,7 @@ package com.clap.lms.domain.entities;
 
 import com.clap.lms.domain.enumerations.AccountStatus;
 import com.clap.lms.domain.valueobjects.Person;
+import lombok.ToString;
 
 public abstract class Account {
   // this is the username for the account
@@ -44,5 +45,15 @@ public abstract class Account {
 
   public void setPerson(Person person) {
     this.person = person;
+  }
+
+  @Override
+  public String toString() {
+    return "Account{" +
+            "accountId='" + accountId + '\'' +
+            ", password='" + password + '\'' +
+            ", accountStatus=" + accountStatus +
+            ", person=" + person +
+            '}';
   }
 }

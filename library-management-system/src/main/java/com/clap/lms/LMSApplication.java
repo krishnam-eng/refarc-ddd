@@ -1,4 +1,4 @@
-package com.clap.lms.infrastructure.configurations;
+package com.clap.lms;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.clap.lms")
 public class LMSApplication implements CommandLineRunner {
 
   public static void main(String[] args) {
