@@ -1,4 +1,4 @@
-Building Reference Architecture for Domian Driven Design & Hexogonal Architecture
+Building Reference Architecture for Domain Driven Design & Hexagonal Architecture
 
 
 
