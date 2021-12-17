@@ -1,9 +1,0 @@
-Model Objects
-    [] Domain
-    [] Relationship
-
-API First
-    [] APIs to serve the use case
-
-Services
-
